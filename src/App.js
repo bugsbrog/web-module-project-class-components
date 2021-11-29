@@ -25,11 +25,32 @@ class App extends React.Component {
       todo: todo
     }
   }
+
+  handleClear = () => {
+    this.setState({
+      ...this.state,
+      todo: this.state.todo.filter(task => {
+        return (!task.completed);
+      })
+    });
+  }
+
+  handleAddTodo = (item) => {
+    const newTodo = {
+     task: item,
+     id: Date.now(),
+     completed: false
+    };
+    this.setState({
+      ...this.state,
+      todo: [...this.state.todo, newTodo]
+    });
+  }
   render() {
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-      </div>
+        <div>
+          <h2>Welcome to your Todo App!</h2>
+        </div>
     );
   }
 }
