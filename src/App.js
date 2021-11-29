@@ -60,8 +60,11 @@ class App extends React.Component {
   }
   render() {
     return (
-        <div>
-          <h2>Todo List</h2>
+        <div className="App">
+          <div className="header">
+          <h1>Todo List</h1>
+          
+        </div>
         </div>
     );
   }
