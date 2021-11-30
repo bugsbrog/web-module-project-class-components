@@ -63,8 +63,12 @@ class App extends React.Component {
         <div className="App">
           <div className="header">
           <h1>Todo List</h1>
-          
+          {/* <TodoForm handleAddTodo={this.handleAddTodo} /> */}
         </div>
+        {/* <TodoList
+            todo={this.state.todo}
+            handleToggleTodo={this.handleToggleTodo}
+            handleClear={this.handleClear} /> */}
         </div>
     );
   }
