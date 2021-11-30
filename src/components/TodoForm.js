@@ -30,7 +30,7 @@ class TodoForm extends React.Component {
                 placeholder="Add a todo"
                 onChange={this.handleChanges}
                 value={this.state.input} />
-                <button onClick={this.handleSubmit}>Add a Todo</button>
+                <button onClick={this.handleSubmit}className="add-button">Add a Todo</button>
             </form>
         )
     }
