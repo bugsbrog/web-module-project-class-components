@@ -3,6 +3,7 @@ import ReactDOM from 'react';
 
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
+import './components/Todo.css';
 
 const todo = [
   {
@@ -64,12 +65,12 @@ class App extends React.Component {
         <div className="App">
           <div className="header">
           <h1>Todo List</h1>
-          <TodoForm handleAddTodo={this.handleAddTodo} />
-        </div>
-        <TodoList
+          <TodoList
             todo={this.state.todo}
             handleToggleTodo={this.handleToggleTodo}
             handleClear={this.handleClear} />
+        </div>
+        <TodoForm handleAddTodo={this.handleAddTodo} />
         </div>
     );
   }
