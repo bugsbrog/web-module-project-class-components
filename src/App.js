@@ -3,7 +3,6 @@ import ReactDOM from 'react';
 
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
-import './style.css';
 
 const todo = [
   {
@@ -36,26 +35,28 @@ class App extends React.Component {
   }
 
   handleAddTodo = (item) => {
-    const newTodo = {
+    this.setState({
+      ...this.state,
+      todo: [...this.state.todo,
+      {
      task: item,
      id: Date.now(),
      completed: false
-    };
-    this.setState({
-      ...this.state,
-      todo: [...this.state.todo, newTodo]
-    });
+    }
+  ]
+    })
   }
   handleToggleTodo = (tD) => {
-    this.setState({
-      ...this.state,
-      todo: this.state.todo.map(t => {
-        if (t.id === tD.id) {
+    const newTodoList = this.state.todo.map(t => {
+        if (t.id === tD) {
           return {...t, completed: !t.completed}
         } else {
           return t;
         }
-      })
+      });
+      this.setState({
+        ...this.state,
+        todo: newTodoList
     })
   }
   render() {
@@ -63,12 +64,12 @@ class App extends React.Component {
         <div className="App">
           <div className="header">
           <h1>Todo List</h1>
-          {/* <TodoForm handleAddTodo={this.handleAddTodo} /> */}
+          <TodoForm handleAddTodo={this.handleAddTodo} />
         </div>
-        {/* <TodoList
+        <TodoList
             todo={this.state.todo}
             handleToggleTodo={this.handleToggleTodo}
-            handleClear={this.handleClear} /> */}
+            handleClear={this.handleClear} />
         </div>
     );
   }
